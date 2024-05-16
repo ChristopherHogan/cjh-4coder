@@ -18,7 +18,10 @@ CUSTOM_ID(colors, defcolor_margin_active);
 CUSTOM_ID(colors, defcolor_list_item);
 CUSTOM_ID(colors, defcolor_list_item_hover);
 CUSTOM_ID(colors, defcolor_list_item_active);
+CUSTOM_ID(colors, defcolor_normal_cursor);
+CUSTOM_ID(colors, defcolor_insert_cursor);
 CUSTOM_ID(colors, defcolor_cursor);
+CUSTOM_ID(colors, defcolor_function);
 CUSTOM_ID(colors, defcolor_at_cursor);
 CUSTOM_ID(colors, defcolor_highlight_cursor_line);
 CUSTOM_ID(colors, defcolor_highlight);
@@ -45,6 +48,7 @@ CUSTOM_ID(colors, defcolor_back_cycle);
 CUSTOM_ID(colors, defcolor_text_cycle);
 CUSTOM_ID(colors, defcolor_line_numbers_back);
 CUSTOM_ID(colors, defcolor_line_numbers_text);
+CUSTOM_ID(colors, defcolor_trailing_whitespace);
 
 struct Color_Table_Node{
     Color_Table_Node *next;

@@ -554,6 +554,10 @@ get_token_color_cpp(Token token){
         {
             color = defcolor_include;
         }break;
+        case TokenCppKind_DeclType:
+        {
+            color = defcolor_special_character;
+        }break;
     }
     FColor result = fcolor_id(color);
     return(result);
@@ -849,9 +853,25 @@ draw_original_4coder_style_cursor_mark_highlight(Application_Links *app, View_ID
         
         i64 cursor_pos = view_get_cursor_pos(app, view_id);
         i64 mark_pos = view_get_mark_pos(app, view_id);
+
+				b32 highlight_range = def_get_config_b32(vars_save_string_lit("highlight_range"));
+        if (cursor_pos != mark_pos && highlight_range){
+            Range_i64 range;
+            if (cjh_in_visual_line_mode())
+            {
+                range = cjh_visual_line_mode_range;
+            }
+            else
+            {
+                range = Ii64(cursor_pos, mark_pos);
+            }
+            draw_character_block(app, text_layout_id, range, roundness,
+                                 fcolor_id(defcolor_highlight));
+        }
+
         if (is_active_view){
             draw_character_block(app, text_layout_id, cursor_pos, roundness,
-                                 fcolor_id(defcolor_cursor, cursor_sub_id));
+                                 fcolor_id(defcolor_normal_cursor, cursor_sub_id));
             paint_text_color_pos(app, text_layout_id, cursor_pos,
                                  fcolor_id(defcolor_at_cursor));
             draw_character_wire_frame(app, text_layout_id, mark_pos,
@@ -864,7 +884,7 @@ draw_original_4coder_style_cursor_mark_highlight(Application_Links *app, View_ID
                                       fcolor_id(defcolor_mark));
             draw_character_wire_frame(app, text_layout_id, cursor_pos,
                                       roundness, outline_thickness,
-                                      fcolor_id(defcolor_cursor, cursor_sub_id));
+                                      fcolor_id(defcolor_normal_cursor, cursor_sub_id));
         }
     }
 }
@@ -878,12 +898,13 @@ draw_notepad_style_cursor_highlight(Application_Links *app, View_ID view_id,
         i32 cursor_sub_id = default_cursor_sub_id();
         i64 cursor_pos = view_get_cursor_pos(app, view_id);
         i64 mark_pos = view_get_mark_pos(app, view_id);
-        if (cursor_pos != mark_pos){
+				b32 highlight_range = def_get_config_b32(vars_save_string_lit("highlight_range"));
+        if (cursor_pos != mark_pos && highlight_range){
             Range_i64 range = Ii64(cursor_pos, mark_pos);
             draw_character_block(app, text_layout_id, range, roundness, fcolor_id(defcolor_highlight));
             paint_text_color_fcolor(app, text_layout_id, range, fcolor_id(defcolor_at_highlight));
         }
-        draw_character_i_bar(app, text_layout_id, cursor_pos, fcolor_id(defcolor_cursor, cursor_sub_id));
+        draw_character_i_bar(app, text_layout_id, cursor_pos, fcolor_id(defcolor_insert_cursor, cursor_sub_id));
     }
 }
 

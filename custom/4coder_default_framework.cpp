@@ -162,13 +162,13 @@ view_get_is_passive(Application_Links *app, View_ID view_id){
 }
 
 function View_ID
-open_footer_panel(Application_Links *app, View_ID view){
+open_footer_panel(Application_Links *app, View_ID view, f32 num_lines=14.0f){
     View_ID special_view = open_view(app, view, ViewSplit_Bottom);
     new_view_settings(app, special_view);
     Buffer_ID buffer = view_get_buffer(app, special_view, Access_Always);
     Face_ID face_id = get_face_id(app, buffer);
     Face_Metrics metrics = get_face_metrics(app, face_id);
-    view_set_split_pixel_size(app, special_view, (i32)(metrics.line_height*14.f));
+    view_set_split_pixel_size(app, special_view, (i32)(metrics.line_height*num_lines));
     view_set_passive(app, special_view, true);
     return(special_view);
 }
@@ -584,7 +584,7 @@ setup_essential_mapping(Mapping *mapping, i64 global_id, i64 file_id, i64 code_i
     SelectMapping(mapping);
     
     SelectMap(global_id);
-    BindCore(default_startup, CoreCode_Startup);
+    BindCore(chogan_default_startup, CoreCode_Startup);
     BindCore(default_try_exit, CoreCode_TryExit);
     BindCore(clipboard_record_clip, CoreCode_NewClipboardContents);
     BindMouseWheel(mouse_wheel_scroll);

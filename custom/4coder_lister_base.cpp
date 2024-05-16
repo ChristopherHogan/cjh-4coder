@@ -574,7 +574,19 @@ run_lister(Application_Links *app, Lister *lister){
                             handled = false;
                         }
                     }break;
-                    
+
+                    case KeyCode_K:
+                    {
+                        if (lister->handlers.navigate && has_modifier(&in.event.key.modifiers, KeyCode_Control))
+                        {
+                            lister->handlers.navigate(app, view, lister, -1);
+                        }
+                        else
+                        {
+                            handled = false;
+                        }
+                    } break;
+
                     case KeyCode_Down:
                     {
                         if (lister->handlers.navigate != 0){
@@ -587,7 +599,19 @@ run_lister(Application_Links *app, Lister *lister){
                             handled = false;
                         }
                     }break;
-                    
+
+                    case KeyCode_J:
+                    {
+                        if (lister->handlers.navigate && has_modifier(&in.event.key.modifiers, KeyCode_Control))
+                        {
+                            lister->handlers.navigate(app, view, lister, 1);
+                        }
+                        else
+                        {
+                            handled = false;
+                        }
+                    } break;
+
                     case KeyCode_PageUp:
                     {
                         if (lister->handlers.navigate != 0){
@@ -601,7 +625,19 @@ run_lister(Application_Links *app, Lister *lister){
                             handled = false;
                         }
                     }break;
-                    
+
+                    case KeyCode_U:
+                    {
+                        if (lister->handlers.navigate && has_modifier(&in.event.key.modifiers, KeyCode_Control))
+                        {
+                            lister->handlers.navigate(app, view, lister, -lister->visible_count);
+                        }
+                        else
+                        {
+                            handled = false;
+                        }
+                    } break;
+
                     case KeyCode_PageDown:
                     {
                         if (lister->handlers.navigate != 0){
@@ -615,7 +651,19 @@ run_lister(Application_Links *app, Lister *lister){
                             handled = false;
                         }
                     }break;
-                    
+
+                    case KeyCode_D:
+                    {
+                        if (lister->handlers.navigate && has_modifier(&in.event.key.modifiers, KeyCode_Control))
+                        {
+                            lister->handlers.navigate(app, view, lister, lister->visible_count);
+                        }
+                        else
+                        {
+                            handled = false;
+                        }
+                    } break;
+
                     default:
                     {
                         if (lister->handlers.key_stroke != 0){

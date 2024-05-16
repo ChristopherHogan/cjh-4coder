@@ -142,9 +142,9 @@
 #include "4coder_audio.cpp"
 #include "4coder_search_list.cpp"
 
+// #include "4coder_default_hooks.cpp"
 #include "4coder_examples.cpp"
 
-#include "4coder_default_hooks.cpp"
 
 #endif
 

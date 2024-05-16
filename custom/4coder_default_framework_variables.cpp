@@ -32,8 +32,27 @@ CUSTOM_ID(attachment, attachment_tokens);
 CUSTOM_ID(command_map, mapid_global);
 CUSTOM_ID(command_map, mapid_file);
 CUSTOM_ID(command_map, mapid_code);
-#endif
 
+CUSTOM_ID(command_map, cjh_mapid_buffer);
+CUSTOM_ID(command_map, cjh_mapid_c);
+CUSTOM_ID(command_map, cjh_mapid_comma);
+CUSTOM_ID(command_map, cjh_mapid_d);
+CUSTOM_ID(command_map, cjh_mapid_file);
+CUSTOM_ID(command_map, cjh_mapid_g);
+CUSTOM_ID(command_map, cjh_mapid_help);
+CUSTOM_ID(command_map, cjh_mapid_macro);
+CUSTOM_ID(command_map, cjh_mapid_normal_mode);
+CUSTOM_ID(command_map, cjh_mapid_profile);
+CUSTOM_ID(command_map, cjh_mapid_quit);
+CUSTOM_ID(command_map, cjh_mapid_snippet);
+CUSTOM_ID(command_map, cjh_mapid_space);
+CUSTOM_ID(command_map, cjh_mapid_toggle);
+CUSTOM_ID(command_map, cjh_mapid_visual_line_mode);
+CUSTOM_ID(command_map, cjh_mapid_visual_mode);
+CUSTOM_ID(command_map, cjh_mapid_window);
+CUSTOM_ID(command_map, cjh_mapid_y);
+
+#endif
 ////////////////////////////////
 
 global b32 allow_immediate_close_without_checking_for_changes = false;
@@ -60,6 +79,7 @@ global String_Const_u8 locked_buffer = {};
 
 
 global View_ID build_footer_panel_view_id = 0;
+global View_ID cjh_status_panel_view_id = 0;
 
 global u8 out_buffer_space[1024];
 global u8 command_space[1024];
