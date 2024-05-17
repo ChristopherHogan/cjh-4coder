@@ -782,7 +782,7 @@ static bool cjh_in_insert_mode()
 CUSTOM_COMMAND_SIG(cjh_enter_normal_mode)
 {
     cjh_command_mode = CjhCommandMode_Normal;
-		String_ID cjh_mapid_normal_mode = vars_save_string_lit("cjh_mapid_normal_mode");
+    String_ID cjh_mapid_normal_mode = vars_save_string_lit("cjh_mapid_normal_mode");
     cjh_set_command_map(app, cjh_mapid_normal_mode);
     cjh_close_status_panel(app);
 
@@ -2785,8 +2785,8 @@ static void cjh_setup_normal_mode_mapping(Mapping *mapping, i64 normal_mode_id)
     Bind(cjh_start_multi_key_cmd_d, KeyCode_D);
     Bind(cjh_move_to_end_of_word, KeyCode_E);
     Bind(cjh_find_forward, KeyCode_F);
-    Bind(move_left, KeyCode_H);
     Bind(cjh_start_multi_key_cmd_g, KeyCode_G);
+    Bind(move_left, KeyCode_H);
     Bind(cjh_enter_insert_mode, KeyCode_I);
     Bind(move_down, KeyCode_J);
     Bind(move_up, KeyCode_K);
@@ -3120,7 +3120,6 @@ custom_layer_init(Application_Links *app){
     cjh_setup_visual_line_mode_mapping(&framework_mapping, cjh_mapid_visual_line_mode);
     cjh_setup_window_mapping(&framework_mapping, cjh_mapid_window);
     cjh_setup_y_mapping(&framework_mapping, cjh_mapid_y);
-
 }
 
 #include "4coder_default_include.cpp"

@@ -72,6 +72,7 @@ default_implicit_map(Application_Links *app, String_ID lang, String_ID mode, Inp
     result.command = binding.custom;
     
     return(result);
+
 }
 
 CUSTOM_COMMAND_SIG(default_view_input_handler)
@@ -1071,9 +1072,9 @@ default_view_change_buffer(Application_Links *app, View_ID view_id,
                            Buffer_ID old_buffer_id, Buffer_ID new_buffer_id){
     Managed_Scope scope = view_get_managed_scope(app, view_id);
     Buffer_ID *prev_buffer_id = scope_attachment(app, scope, view_previous_buffer, Buffer_ID);
-	if (prev_buffer_id != 0){
-		*prev_buffer_id = old_buffer_id;
-	}
+    if (prev_buffer_id != 0){
+        *prev_buffer_id = old_buffer_id;
+    }
 }
 
 internal void

@@ -1,5 +1,5 @@
 
-bg0_s = 0xff32302f;
+bg0_s = 0xff161620;
 bg0 = 0xff282828;
 red = 0xfffb4934;
 dark_red = 0xffcc241d;
@@ -14,7 +14,7 @@ dark_purple = 0xffb16286;
 aqua = 0xff8ec07c;
 dark_aqua = 0xff689d6a;
 orange = 0xfffe8019;
-gray = 0xff928374;
+gray = 0xff928384;
 dark_gray = 0xff928374;
 text = 0xffd5c4a1;
 highlight = 0xff504945;
