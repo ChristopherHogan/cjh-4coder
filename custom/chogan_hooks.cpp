@@ -828,13 +828,14 @@ BUFFER_HOOK_SIG(default_begin_buffer){
         }
     }
     
-    String_ID file_map_id = vars_save_string_lit("keys_file");
-    String_ID code_map_id = vars_save_string_lit("keys_code");
+    // String_ID file_map_id = vars_save_string_lit("keys_file");
+    // String_ID code_map_id = vars_save_string_lit("keys_code");
+    String_ID cjh_normal_mode_map_id = vars_save_string_lit("cjh_mapid_normal_mode");
     
-    Command_Map_ID map_id = (treat_as_code)?(code_map_id):(file_map_id);
+    // Command_Map_ID map_id = (treat_as_code)?(code_map_id):(file_map_id);
     Managed_Scope scope = buffer_get_managed_scope(app, buffer_id);
     Command_Map_ID *map_id_ptr = scope_attachment(app, scope, buffer_map_id, Command_Map_ID);
-    *map_id_ptr = map_id;
+    *map_id_ptr = cjh_normal_mode_map_id;
     
     Line_Ending_Kind setting = guess_line_ending_kind_from_buffer(app, buffer_id);
     Line_Ending_Kind *eol_setting = scope_attachment(app, scope, buffer_eol_setting, Line_Ending_Kind);
