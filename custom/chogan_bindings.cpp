@@ -33,6 +33,7 @@
 // - `.` should repeat gc
 // - query replace: Put text of interest in center of screen.
 // - Auto shader string formatting.
+// - which-key style hints
 
 // TODO(chogan): Theme
 // - Syntax highlighting for variable defs, enums, args
