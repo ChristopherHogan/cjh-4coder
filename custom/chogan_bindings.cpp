@@ -15,6 +15,8 @@
 // - `x p` should swap letters
 // - treat '->' as a word
 // - Keep ring buffer of all views to enable `SPC b n` and `SPC b p`.
+// - org-mode
+// - org-roam (Zettelkasten system)
 
 // TODO(chogan): Enhancements
 // - Alt-p to populate search bar with search history
